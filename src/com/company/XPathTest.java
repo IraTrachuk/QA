@@ -53,10 +53,11 @@ public class XPathTest {
         System.setProperty("webdriver.chrome.driver", "C:\\QA Automation (IRA)\\Chromedriver_win32\\chromedriver.exe");
         chromeDriver = new ChromeDriver();
         chromeDriver.manage().window().setSize(new Dimension(1200, 768));
-        //chromeDriver.get("http://angel.net/~nic/passwd.sha1.1a.html");
-        chromeDriver.get("http://oxogamestudio.com/passwd.current2.htm");
+        chromeDriver.get("http://angel.net/~nic/passwd.sha1.1a.html");
+        //chromeDriver.get("http://oxogamestudio.com/passwd.current2.htm");
     }
 
+    /*
     @Test
     public void passIsCorrect(){
         //написать отдельные функции
@@ -66,6 +67,7 @@ public class XPathTest {
         String pwd = getField("Generated password");
         Assert.assertequals("2mIEFhSD1a", pwd);
     }
+    */
 
     @After
     public void tearDown(){
