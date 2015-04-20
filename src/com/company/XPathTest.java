@@ -58,7 +58,7 @@ public class XPathTest {
     }
 
     @Test
-    public void titleIsCorrect(){
+    public void passIsCorrect(){
         //написать отдельные функции
         setField("Your master password", "12345678");
         setField("Site name", "example.ua");
