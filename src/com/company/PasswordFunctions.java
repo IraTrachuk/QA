@@ -29,10 +29,6 @@ public class PasswordFunctions {
         chromeDriver.findElement(By.xpath("//td[text()='Site name']/following::input[1]")).sendKeys(site);
     }
 
-    public static void generate(){
-        chromeDriver.findElement(By.xpath("//td[text()='Generated password']/preceding::input[1]")).click();
-    }
-
     public static String password(){
         return chromeDriver.findElement(By.xpath("//td[text()='Generated password']/following::input[1]")).getAttribute("value");
     }
@@ -77,58 +73,30 @@ public class PasswordFunctions {
         return chromeDriver.findElement(By.xpath("//td[text()='Generated password']/following::input[1]")).isEnabled();
     }
 
-    public static void setField(String field, String value){
-        chromeDriver.findElement(By.xpath("//td[text()='" + field + "']/following::input[1]")).sendKeys(value);
-    }
-
-    public static String getField(String field){
-        return chromeDriver.findElement(By.xpath("//td[text()='"+ field + "']/following::input[1]")).getAttribute("value");
-    }
-
-    /*public static String PasswordGenerator(WebDriver chromeDriver, String name, String site) {
-
-        chromeDriver.findElement(By.name("master")).clear();
-        chromeDriver.findElement(By.name("master")).sendKeys(name);
-
-        chromeDriver.findElement(By.name("site")).clear();
-        chromeDriver.findElement(By.name("site")).sendKeys(site);
-        chromeDriver.findElement(By.xpath("//td/input[@value]")).click();
-
-        String pass = chromeDriver.findElement(By.name("password")).getAttribute("value");
-
-        return pass;
-    }*/
-
-    /*
-    public static void compare(String a, String b) {
-        if (a.equals(b)) {
-            System.out.println("Test passed!");
-        } else {
-            System.out.println("Test failed...");
-        }
-    }
-    */
-
-    @Before
+        @Before
     public void init(){
-        System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
-        chromeDriver = new ChromeDriver();
-        chromeDriver.manage().window().setSize(new Dimension(1200, 768));
-        chromeDriver.get("http://angel.net/~nic/passwd.sha1.1a.html");
+       //System.setProperty("webdriver.chrome.driver", "C:\\QA Automation (IRA)\\Chromedriver_win32\\chromedriver.exe");
+        //chromeDriver = new ChromeDriver();
+       // chromeDriver.manage().window().setSize(new Dimension(1200, 768));
+        TestHelper.init();
+        GenPagePass.open();
+        //chromeDriver.get("http://angel.net/~nic/passwd.sha1.1a.html");
     }
+
+
+    //setField, getField, generate перенесены в PageObject
 
     @After
     public void tearDown(){
-        chromeDriver.quit();
+        TestHelper.tearDown();
     }
 
     @Test
     public void passIsCorrect(){
-        //написать отдельные функции
-        setField("Your master password", "12345678");
-        setField("Site name", "example.ua");
-        generate();
-        String pwd = getField("Generated password");
+        GenPagePass.setField("Your master password", "12345678");
+        GenPagePass.setField("Site name", "example.ua");
+        GenPagePass.generate();
+        String pwd = GenPagePass.getField("Generated password");
         Assert.assertEquals("2mIEFhSD1a", pwd);
     }
 
