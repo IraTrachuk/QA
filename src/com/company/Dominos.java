@@ -1,9 +1,6 @@
 package com.company;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -20,7 +17,7 @@ public class Dominos {
 
         WebDriver chromeDriver = new ChromeDriver();
         chromeDriver.manage().window().setSize(new Dimension(1200, 768));
-        chromeDriver.get("http://www.dominos.ua");
+        chromeDriver.get("http://www.dominos.ua/ru");
 
         chromeDriver.findElement(By.xpath("//img[@alt='main_page_teser']")).click();
         chromeDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -42,10 +39,26 @@ public class Dominos {
 
         chromeDriver.findElement(By.cssSelector("a.add_to_box.custom_pizza_add_to_box")).click();
 
-        chromeDriver.findElement(By.xpath("//a[contains(@href, '/ru/box/')]")).click();
-        chromeDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        //chromeDriver.findElement(By.xpath("//a[contains(@href, '/ru/box/')]")).click();
+        //chromeDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-        chromeDriver.findElement(By.id(""));
-        //chromeDriver.findElement(By.id("s2id_autogen1_search")).sendKeys("a");
+
+        boolean result = false;
+        int attempts = 0;
+
+        while (attempts < 2) {
+            try {
+                chromeDriver.findElement(By.xpath("//a[contains(@href, '/ru/box/')]")).click();
+                chromeDriver.findElement(By.id("id_street_name")).sendKeys("sadsdsf");
+
+                result = true;
+                break;
+            } catch (StaleElementReferenceException e) {
+            }
+            attempts ++;
+        }
+
+        //chromeDriver.findElement(By.id("select2-drop-mask"));
+        //chromeDriver.findElement(By.cssSelector("input.select2-input")).sendKeys("искровская");
     }
 }
