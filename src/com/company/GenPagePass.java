@@ -3,6 +3,7 @@ package com.company;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+
 /**
  * Created by Admin on 22.04.15.
  */
@@ -22,7 +23,11 @@ public class GenPagePass {
         TestHelper.chromeDriver.findElement(By.xpath("//td[text()='Generated password']/preceding::input[1]")).click();
     }
 
-    public static void open(){
+    public static void openPass(){
         TestHelper.chromeDriver.get("http://angel.net/~nic/passwd.sha1.1a.html");
+    }
+
+    public static void openTranslate(){
+        TestHelper.chromeDriver.get("https://translate.google.com/");
     }
 }

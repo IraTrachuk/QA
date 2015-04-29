@@ -79,7 +79,7 @@ public class PasswordFunctions {
         //chromeDriver = new ChromeDriver();
        // chromeDriver.manage().window().setSize(new Dimension(1200, 768));
         TestHelper.init();
-        GenPagePass.open();
+        GenPagePass.openPass();
         //chromeDriver.get("http://angel.net/~nic/passwd.sha1.1a.html");
     }
 
