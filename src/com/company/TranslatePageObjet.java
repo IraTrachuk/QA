@@ -58,25 +58,61 @@ public class TranslatePageObjet {
         Assert.assertTrue(TestHelper.chromeDriver.findElement(By.xpath("//div[@id='itamenu']/following::span[2]")).isDisplayed());
     }
 
-
     @Test
     public void nothingResultBox(){
         Assert.assertEquals("span", TestHelper.chromeDriver.findElement(By.id("result_box")).getTagName());        ;
     }
 
-    */
-
     @Test
-    public void checkLanguages(){
+    public void checkLanguages() throws InterruptedException {
         TestHelper.chromeDriver.findElement(By.id("gt-sl-gms")).click();
         WebElement a = TestHelper.chromeDriver.findElement(By.xpath("//div[@id=':k']/following::div[1]"));
         a.click();
-        a.getText();
+        WebElement c = TestHelper.chromeDriver.findElement(By.xpath("//div[@id=':t']/following::div[2]"));
+        c.click(); //not visible
         WebElement b = TestHelper.chromeDriver.findElement(By.xpath("//div[@id='gt-sl-sugg']/following::div[3]"));
-        b.getText();
+        System.out.println(b.getText());
         //сравнить значения текстов этих элементов или просто с текстом "греческий" сравнить
 
     }
 
+    @Test
+    public void hello(){
+        Assert.assertEquals("здравствуйте", TestHelper.chromeDriver.findElement(By.xpath("//span[@class='hps']")).getText());
+    }
+
+
+    @Test
+    public void entoes() throws InterruptedException {
+        TestHelper.chromeDriver.findElement(By.xpath("//*[@id = 'gt-tl-gms']")).click();
+        TestHelper.chromeDriver.findElement(By.xpath("//div[text()='испанский']")).click();
+        TestHelper.chromeDriver.findElement(By.xpath("//*[@id = 'gt-sl-gms']")).click();
+        TestHelper.chromeDriver.findElement(By.xpath("//div[text()='английский']")).click();
+        Thread.sleep(2000);
+        TestHelper.chromeDriver.findElement(By.xpath("//*[@id='source']")).sendKeys("girl");
+        Thread.sleep(7000);
+        Assert.assertEquals("chica", TestHelper.chromeDriver.findElement(By.xpath("//span[@class='hps']")).getText());
+    }
+
+    @Test
+    public void btnListen() throws InterruptedException {
+        TestHelper.chromeDriver.findElement(By.xpath("//*[@id='source']")).sendKeys("hello");
+        Thread.sleep(7000);
+        Assert.assertTrue(TestHelper.chromeDriver.findElement(By.xpath("//div[@id='gt-res-listen']//span")).isDisplayed());
+    }
+    */
+
+    @Test
+    public void eraseField() throws InterruptedException {
+        TestHelper.chromeDriver.findElement(By.xpath("//*[@id='source']")).sendKeys("hello");
+        TestHelper.chromeDriver.findElement(By.xpath("//div[@id='gt-clear']//span")).click();
+        Assert.assertEquals("", TestHelper.chromeDriver.findElement(By.xpath("//*[@id='source']")).getText());
+        Thread.sleep(5000);
+        Assert.assertEquals("", TestHelper.chromeDriver.findElement(By.xpath("//span[@id='result_box']")).getText());
+    }
+
+    //у Димы setInput, setOutput
+    //написать нормальные функции для задания языков
+    //с английского на итальянский задать и проверить что именно эти языки выставились
 
 }
