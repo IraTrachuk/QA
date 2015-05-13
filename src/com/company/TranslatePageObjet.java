@@ -79,7 +79,7 @@ public class TranslatePageObjet {
     */
     @Test
     public void hello(){
-        Assert.assertEquals("dsdsd", TestHelper.chromeDriver.findElement(By.xpath("//span[@class='hps']")).getText());
+        Assert.assertEquals("здравствуйте", TestHelper.chromeDriver.findElement(By.xpath("//span[@class='hps']")).getText());
     }
 
     /*
