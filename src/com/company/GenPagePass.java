@@ -28,7 +28,7 @@ public class GenPagePass {
     }
 
     public static void openTranslate(){
-        //TestHelper.chromeDriver.get("https://translate.google.com");
-        TestHelper.chromeDriver.get("https://translate.google.com/#en/ru/hello");
+        TestHelper.chromeDriver.get("https://translate.google.com");
+        //TestHelper.chromeDriver.get("https://translate.google.com/#en/ru/hello");
     }
 }

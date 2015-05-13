@@ -76,13 +76,13 @@ public class TranslatePageObjet {
 
     }
 
-    */
+
     @Test
     public void hello(){
-        Assert.assertEquals("nbnbb", TestHelper.chromeDriver.findElement(By.xpath("//span[@class='hps']")).getText());
+        Assert.assertEquals("здравствуйте", TestHelper.chromeDriver.findElement(By.xpath("//span[@class='hps']")).getText());
     }
 
-    /*
+
     @Test
     public void entoes() throws InterruptedException {
         TestHelper.chromeDriver.findElement(By.xpath("//*[@id = 'gt-tl-gms']")).click();
@@ -102,7 +102,7 @@ public class TranslatePageObjet {
         Assert.assertTrue(TestHelper.chromeDriver.findElement(By.xpath("//div[@id='gt-res-listen']//span")).isDisplayed());
     }
 
-
+    */
     @Test
     public void eraseField() throws InterruptedException {
         TestHelper.chromeDriver.findElement(By.xpath("//*[@id='source']")).sendKeys("hello");
@@ -115,5 +115,5 @@ public class TranslatePageObjet {
     //у Димы setInput, setOutput
     //написать нормальные функции для задания языков
     //с английского на итальянский задать и проверить что именно эти языки выставились
-    */
+
 }
