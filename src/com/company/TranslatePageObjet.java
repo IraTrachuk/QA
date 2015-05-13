@@ -76,12 +76,13 @@ public class TranslatePageObjet {
 
     }
 
+    */
     @Test
     public void hello(){
-        Assert.assertEquals("здравствуйте", TestHelper.chromeDriver.findElement(By.xpath("//span[@class='hps']")).getText());
+        Assert.assertEquals("dsdsd", TestHelper.chromeDriver.findElement(By.xpath("//span[@class='hps']")).getText());
     }
 
-
+    /*
     @Test
     public void entoes() throws InterruptedException {
         TestHelper.chromeDriver.findElement(By.xpath("//*[@id = 'gt-tl-gms']")).click();
@@ -100,7 +101,7 @@ public class TranslatePageObjet {
         Thread.sleep(7000);
         Assert.assertTrue(TestHelper.chromeDriver.findElement(By.xpath("//div[@id='gt-res-listen']//span")).isDisplayed());
     }
-    */
+
 
     @Test
     public void eraseField() throws InterruptedException {
@@ -114,5 +115,5 @@ public class TranslatePageObjet {
     //у Димы setInput, setOutput
     //написать нормальные функции для задания языков
     //с английского на итальянский задать и проверить что именно эти языки выставились
-
+    */
 }
