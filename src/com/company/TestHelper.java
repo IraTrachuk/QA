@@ -17,6 +17,7 @@ public class TestHelper {
 
     public static void init(){
         //System.setProperty("webdriver.chrome.driver", "C:\\QA Automation (IRA)\\Chromedriver_win32\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--lang=ru");
         chromeDriver = new ChromeDriver(options);
