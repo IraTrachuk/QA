@@ -1,6 +1,5 @@
 package com.company;
 
-import com.sun.javafx.scene.EnteredExitedHandler;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
